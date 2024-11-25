@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.5.0",
     "daisyui": "^4.12.14",
     "graphql": "^16.9.0",
     "graphql-request": "^7.1.2",
