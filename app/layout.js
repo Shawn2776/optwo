@@ -7,6 +7,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/nextjs";
+import Navbar from "@/components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,15 +33,10 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex w-full justify-end p-1 pr-10 pt-2">
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
-          <main>{children}</main>
+          <main>
+            <Navbar />
+            {children}
+          </main>
         </body>
       </html>
     </ClerkProvider>
