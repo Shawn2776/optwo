@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="ml-10">
         <Image src="/logo2.png" alt="logo" width={100} height={100} />
       </div>
-      <div className="md:flex gap-4 hidden">
+      <div className="hidden gap-4 md:flex">
         <h2>
           <button variant="link">
             <span className="text-xl">Home</span>
@@ -22,7 +22,7 @@ const Navbar = () => {
         </h2>
         <h2>
           <button variant="link">
-            <span className="text-xl">Rental</span>
+            <span className="text-xl">Rentals</span>
           </button>
         </h2>
         <h2>
