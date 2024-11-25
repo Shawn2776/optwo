@@ -22,7 +22,7 @@ const Navbar = () => {
         </h2>
         <h2>
           <button variant="link">
-            <span className="text-xl">History</span>
+            <span className="text-xl">Rental</span>
           </button>
         </h2>
         <h2>
