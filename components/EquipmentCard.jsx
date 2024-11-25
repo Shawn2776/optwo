@@ -14,7 +14,7 @@ const EquipmentCard = (equipmentList) => {
 
   return (
     equipment && (
-      <div className="max-w-sm p-1 bg-gray-400 rounded-lg shadow-md">
+      <div className="max-w-sm p-1 bg-white rounded-lg shadow-md">
         <a href="#">
           <Image
             src={equipment?.image[0].url}

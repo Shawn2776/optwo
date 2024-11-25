@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const SearchInput = () => {
   return (
-    <section className="w-full pt-2 pb-10 mt-10 bg-gray-400">
+    <section className="w-full pt-2 pb-10 mt-10 bg-gray-100">
       <h2 className="text-center text-[25px] text-gray-900 mt-8 mb-1">
         Plan your next adventure
       </h2>
