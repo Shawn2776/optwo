@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const EquipmentFiltersOptions = ({ eList, setSeason, setCategory }) => {
   const [seasonList, setSeasonList] = useState();
-  const [categoryList, setCategoryList] = useState();
+  // const [categoryList, setCategoryList] = useState();
 
   const SeasonSet = new Set();
   const categorySet = new Set();
@@ -18,14 +18,14 @@ const EquipmentFiltersOptions = ({ eList, setSeason, setCategory }) => {
   const filterEquipList = () => {
     eList.forEach((element) => {
       SeasonSet.add(element.season);
-      categorySet.add(element.category);
+      // categorySet.add(element.category);
     });
 
     setSeasonList(Array.from(SeasonSet));
-    setCategoryList(Array.from(categorySet));
+    // setCategoryList(Array.from(categorySet));
   };
   return (
-    <div className="flex items-center justify-between pt-10 mx-auto mt-10 max-w-7xl p-4  sm:px-10 md:px-20">
+    <div className="flex items-center justify-between p-4 pt-10 mx-auto mt-10 max-w-7xl sm:px-10 md:px-20">
       <div>
         <h2 className="text-[30px] font-bold">Equipment Catalog</h2>
         <h2>Explore Equipment You Might Like</h2>
@@ -54,11 +54,11 @@ const EquipmentFiltersOptions = ({ eList, setSeason, setCategory }) => {
           <option disabled value="">
             Category
           </option>
-          {categoryList?.map((category, index) => (
+          {/* {categoryList?.map((category, index) => (
             <option key={index} value={category}>
               {category}
             </option>
-          ))}
+          ))} */}
         </select>
       </div>
     </div>

@@ -34,7 +34,7 @@ export default function Home() {
       <SearchInput />
       <EquipmentFiltersOptions
         eList={equipOrigList}
-        setSeason={(value) => console.log(value)}
+        setSeason={(value) => filterEquipList(value)}
       />
       <EList eList={equipList} />
     </main>
