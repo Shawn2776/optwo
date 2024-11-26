@@ -5,12 +5,13 @@ import EquipmentFiltersOptions from "@/components/EquipmentFiltersOptions";
 import Hero from "@/components/Hero";
 import SearchInput from "@/components/SearchInput";
 import { getEquipmentList } from "@/services";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [equipList, setEquipList] = useState([]);
   const [equipOrigList, setEquipOrigList] = useState([]);
+  const [selectedSeason, setSelectedSeason] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     getEquipment();
@@ -23,9 +24,23 @@ export default function Home() {
   };
 
   const filterEquipList = (season) => {
-    const filterList = equipOrigList.filter((item) => item.season == season);
-
+    setSelectedSeason(season);
+    const filterList = equipOrigList.filter((item) => item.season === season);
     setEquipList(filterList);
+  };
+
+  const filterEquipList_two = (category) => {
+    setSelectedCategory(category);
+    const filterList = equipOrigList.filter(
+      (item) => item.category === category
+    );
+    setEquipList(filterList);
+  };
+
+  const resetFilters = () => {
+    setEquipList(equipOrigList); // Reset to the original list
+    setSelectedSeason(""); // Clear the season filter
+    setSelectedCategory(""); // Clear the category filter
   };
 
   return (
@@ -35,6 +50,10 @@ export default function Home() {
       <EquipmentFiltersOptions
         eList={equipOrigList}
         setSeason={(value) => filterEquipList(value)}
+        setCategory={(value_two) => filterEquipList_two(value_two)}
+        resetFilters={resetFilters} // Pass the reset function
+        selectedSeason={selectedSeason} // Track selected season
+        selectedCategory={selectedCategory} // Track selected category
       />
       <EList eList={equipList} />
     </main>
