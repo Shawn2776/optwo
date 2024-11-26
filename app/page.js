@@ -43,6 +43,15 @@ export default function Home() {
     setSelectedCategory(""); // Clear the category filter
   };
 
+  const orderEquipmentList = (order) => {
+    const sortedData = [...equipOrigList].sort((a, b) =>
+      order == -1
+        ? a.hourlyPublicRate - b.hourlyPublicRate
+        : b.hourlyPublicRate - a.hourlyPublicRate
+    );
+    setEquipList(sortedData);
+  };
+
   return (
     <main>
       <Hero />
@@ -54,6 +63,7 @@ export default function Home() {
         resetFilters={resetFilters} // Pass the reset function
         selectedSeason={selectedSeason} // Track selected season
         selectedCategory={selectedCategory} // Track selected category
+        orderEquipmentList={(value) => orderEquipmentList(value)}
       />
       <EList eList={equipList} />
     </main>

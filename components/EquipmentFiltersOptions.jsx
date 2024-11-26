@@ -9,6 +9,7 @@ const EquipmentFiltersOptions = ({
   resetFilters,
   selectedSeason,
   selectedCategory,
+  orderEquipmentList,
 }) => {
   const [seasonList, setSeasonList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
@@ -47,6 +48,18 @@ const EquipmentFiltersOptions = ({
         <h2>Explore Equipment You Might Like</h2>
       </div>
       <div className="flex gap-5">
+        {/* Begin Example */}
+        <select
+          className="select select-bordered w-full max-w-xs"
+          onChange={(e) => orderEquipmentList(e.target.value)}
+        >
+          {/* <option disabled value="">
+            Price
+          </option> */}
+          <option value={-1}>Min to Max</option>
+          <option value={1}>Max to Min</option>
+        </select>
+        {/* End Example */}
         <select
           className="w-full max-w-xs bg-white select select-bordered"
           value={selectedSeason} // Controlled by state
