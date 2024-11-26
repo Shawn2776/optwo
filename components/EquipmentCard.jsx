@@ -87,17 +87,42 @@ const EquipmentCard = (equipmentList) => {
         </CardHeader>
         <CardBody>
           <div className="flex items-center justify-between mb-2">
-            <Typography color="blue-gray" className="font-medium">
+            <Typography color="blue-gray" className="pl-2 font-medium">
               {equipment?.name}
             </Typography>
             <Typography color="blue-gray" className="font-medium">
-              <span className="text-gray-900 ">
-                $
-                <span className="text-2xl font-bold">
-                  {equipment.hourlyPublicRate}
-                </span>
-                <span className="text-sm font-medium text-gray-500 ">/hr</span>
-              </span>
+              <div className="flex items-center gap-4 pr-4 divide-x-2">
+                <div>
+                  <div>
+                    <small>Public</small>
+                  </div>
+                  <span className="text-gray-900 ">
+                    $
+                    <span className="text-2xl font-bold">
+                      {equipment.hourlyPublicRate}
+                    </span>
+                    <span className="text-sm font-medium text-gray-500 ">
+                      /hr
+                    </span>
+                  </span>
+                </div>
+                <div className="pl-4">
+                  <div>
+                    <small>Student</small>
+                  </div>
+                  <div>
+                    <span className="text-green-500 ">
+                      $
+                      <span className="text-2xl font-bold">
+                        {equipment.hourlyStudentRate}
+                      </span>
+                      <span className="text-sm font-medium text-gray-500 ">
+                        /hr
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
             </Typography>
           </div>
           <Typography
@@ -105,8 +130,15 @@ const EquipmentCard = (equipmentList) => {
             color="gray"
             className="font-normal opacity-75"
           >
-            With plenty of talk and listen time, voice-activated Siri access,
-            and an available wireless charging case.
+            <span>
+              <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">
+                {equipment?.season.toUpperCase()}
+              </span>
+
+              <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">
+                {equipment?.category?.toUpperCase()}
+              </span>
+            </span>
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
