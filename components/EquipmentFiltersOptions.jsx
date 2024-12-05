@@ -50,12 +50,12 @@ const EquipmentFiltersOptions = ({
       <div className="flex gap-5">
         {/* Begin Example */}
         <select
-          className="select select-bordered w-full max-w-xs"
+          className="w-full max-w-xs select select-bordered"
           onChange={(e) => orderEquipmentList(e.target.value)}
         >
-          {/* <option disabled value="">
+          <option disabled value="">
             Price
-          </option> */}
+          </option>
           <option value={-1}>Min to Max</option>
           <option value={1}>Max to Min</option>
         </select>
