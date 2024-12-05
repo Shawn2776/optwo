@@ -16,7 +16,7 @@ const EList = (eList) => {
   }, [eList.EList]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-10">
+    <div className="grid grid-cols-2 gap-8 pt-10 mx-auto max-w-7xl md:grid-cols-3 lg:grid-cols-4">
       {/* CardSkeleton */}
       {!isLoaded &&
         eList.eList.map((e) => (
@@ -36,7 +36,7 @@ const EList = (eList) => {
             <EquipmentCardSkeleton key={index} />
           ))
         : null}
-      <dialog id="my_modal_4" className="modal">
+      <dialog id="my_modal_4" className="flex modal justify-evenly">
         <EquipmentModal selectedEquipment={selectedEquipment} />
       </dialog>
     </div>
