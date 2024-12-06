@@ -16,26 +16,32 @@ const EList = (eList) => {
   }, [eList.EList]);
 
   return (
-    <div className="grid grid-cols-2 gap-8 pt-10 mx-auto max-w-7xl md:grid-cols-3 lg:grid-cols-4">
-      {/* CardSkeleton */}
-      {!isLoaded &&
-        eList.eList.map((e) => (
-          <div
-            key={e.id}
-            className="rounded-md"
-            onClick={() => {
-              document.getElementById("my_modal_4").showModal();
-              setSelectedEquipment(equipment);
-            }}
-          >
-            <EquipmentCard equipment={e} />
-          </div>
-        ))}
-      {isLoaded
-        ? [1, 2, 3, 4].map((item, index) => (
-            <EquipmentCardSkeleton key={index} />
-          ))
-        : null}
+    <div className="relative pt-10 mx-auto overflow-x-auto max-w-7xl">
+      {/* Scrollable Container */}
+      <div className="flex gap-8 lg:gap-4 flex-nowrap">
+        {/* CardSkeleton */}
+        {!isLoaded &&
+          eList.eList.map((e) => (
+            <div
+              key={e.id}
+              className="min-w-[25%] lg:min-w-[25%] rounded-md"
+              onClick={() => {
+                document.getElementById("my_modal_4").showModal();
+                setSelectedEquipment(e);
+              }}
+            >
+              <EquipmentCard equipment={e} />
+            </div>
+          ))}
+        {isLoaded
+          ? [1, 2, 3, 4].map((item, index) => (
+              <div key={index} className="min-w-[25%] lg:min-w-[25%]">
+                <EquipmentCardSkeleton />
+              </div>
+            ))
+          : null}
+      </div>
+      {/* Modal */}
       <dialog id="my_modal_4" className="flex modal justify-evenly">
         <EquipmentModal selectedEquipment={selectedEquipment} />
       </dialog>
